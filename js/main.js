@@ -4,6 +4,9 @@
 
 const $body = $("body");
 
+const $favCheck = $('#fav-toggle');
+const $favList = $('#fav-list');
+const $delete = $('#delete-story');
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
 
@@ -11,7 +14,7 @@ const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
 const $storyForm = $("#story-form");
 
-const $navFav = $('#nav-submit');
+const $navFav = $('#nav-fav');
 const $navSubmit = $("#nav-submit");
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");

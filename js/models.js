@@ -92,8 +92,20 @@ class StoryList {
     // const theStory = new Story (token, title, author, url)
     return new StoryList(newstory) 
   }
-  
+  async deleteStoryList(user, story){
+    
+    const deleteStory = await axios({
+      url: `${BASE_URL}/stories/${story}`,
+      method: 'DELETE',
+     data:{
+       token: user.loginToken
+     }
+    })
+    return new StoryList(deleteStory)
+  }
 }
+  
+
 
 
 
@@ -210,6 +222,29 @@ class User {
       console.error("loginViaStoredCredentials failed", err);
       return null;
     }
+  }
+  async Fav(user, story){
+    let storyID = story.id
+    const newFav = await axios({
+      url: `${BASE_URL}/users/${user.username}/favorites/${story}`,
+      method: 'POST',
+     data:{
+       token: user.loginToken
+     }
+    })
+    return new User(user, newFav)
+  }
+
+  async deleteFav(user, story){
+    let storyID = story.id
+    const deleteFav = await axios({
+      url: `${BASE_URL}/users/${user.username}/favorites/${story}`,
+      method: 'DELETE',
+     data:{
+       token: user.loginToken
+     }
+    })
+    return new User(user, deleteFav)
   }
 }
 

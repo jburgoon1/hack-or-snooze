@@ -35,6 +35,7 @@ function updateNavOnLogin() {
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
   $navSubmit.show()
+  $navFav.show()
 }
 
 function navSubmitClick(evt){
@@ -43,3 +44,10 @@ function navSubmitClick(evt){
   $storyForm.show();
 }
 $navSubmit.on('click', navSubmitClick);
+
+function navFavClick(evt){
+  console.debug("navFavClick", evt);
+  hidePageComponents();
+  $favList.show();
+}
+$navFav.on('click', navFavClick);
